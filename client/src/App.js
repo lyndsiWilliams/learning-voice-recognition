@@ -21,10 +21,27 @@ function App() {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
     setSpeechTranscript(transcript);
+
+    readOutLoud(transcript);
   }
 
   const handleClick = () => {
     recognition.start();
+  };
+
+  const readOutLoud = message => {
+    const speech = new SpeechSynthesisUtterance();
+
+    speech.text = message;
+
+    // Speech customization
+    // All ranges are 0-1
+    speech.volume = 1;
+    speech.rate = 1;  // Speed
+    speech.pitch = 1;
+
+    // This is where the actual talking happens
+    window.speechSynthesis.speak(speech);
   };
 
   return (
