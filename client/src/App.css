@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.talk {
+  width: fit-content;
+  align-self: center;
 }
 
 .App-logo {
